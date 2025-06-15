@@ -1,0 +1,32 @@
+name: Auto Translate JSON
+
+on:
+  push:
+    paths:
+      - 'ru.json'
+  workflow_dispatch:
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install translator
+        run: pip install googletrans==4.0.0-rc1
+
+      - name: Run translator
+        run: python enhanced_translator_google.py
+
+      - name: Commit results
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git add en.json zh.json
+          git diff --cached --quiet || git commit -m "🤖 Auto-translated from ru.json"
+          git push
