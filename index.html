@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>ИИ в промышленности</title>
+  <script src="i18n.js" defer></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <label for="lang-select">🌐 <span id="label-language"></span></label>
+    <select id="lang-select">
+      <option value="ru">Русский</option>
+      <option value="en">English</option>
+      <option value="zh">中文</option>
+    </select>
+  </header>
+
+  <main>
+    <h1 id="main-title"></h1>
+    <p id="description"></p>
+
+    <div class="filters">
+      <label id="industry-title" for="industry-filter"></label>
+      <select id="industry-filter">
+        <option value="all"></option>
+        <option value="metallurgy"></option>
+        <option value="agriculture"></option>
+      </select>
+    </div>
+
+    <section id="case-list"></section>
+  </main>
+</body>
+</html>
